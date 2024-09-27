@@ -1,0 +1,4 @@
+public class PoemWords {
+    public static String[] words = { "glimmer", "flutter", "twinkle", "serenade", "breeze", "whisper", 
+                                     "gleam", "radiance", "harmony", "dazzle" };
+}
