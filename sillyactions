@@ -1,0 +1,20 @@
+public interface SillyActions {
+    
+    // Make a random sound by producing a random word and printing it
+    void makeRandomSound();
+    
+    // Perform a silly dance with a few steps to the left, right, backwards, and forward
+    void performSillyDance();
+    
+    // Recite the alphabet backwards, but forget one letter
+    String reciteAlphabetBackwards();
+    
+    // Count to ten in an unusual way (e.g., skip a number)
+    void countToTenWeirdly();
+    
+    // Create a whimsical poem about a topic, ensuring the topic is in the first line
+    String createWhimsicalPoem(String topic);
+    
+    // Produce random numbers for the state lottery
+    void winStateLottery();
+}
