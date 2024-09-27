@@ -1,0 +1,96 @@
+import java.util.Random;
+
+public class Person implements Comparable<Person>, SillyActions {
+
+    private String firstName;
+    private String lastName;
+    private int yearBorn;
+
+    public Person(String firstName, String lastName, int yearBorn) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.yearBorn = yearBorn;
+    }
+
+    public Person(String firstName) {
+        this(firstName, "Doe", 2000);
+    }
+
+    // Implements the compareTo method based on the year of birth
+    public int compareTo(Person other) {
+        return other.yearBorn - this.yearBorn;
+    }
+
+    // Make a random sound by printing a random word from PoemWords
+    @Override
+    public void makeRandomSound() {
+        Random random = new Random();
+        String sound = PoemWords.words[random.nextInt(PoemWords.words.length)];
+        System.out.println(firstName + " makes a sound: " + sound + "!");
+    }
+
+    // Perform a silly dance by describing a sequence of movements
+    @Override
+    public void performSillyDance() {
+        String[] steps = { "left", "right", "backwards", "forward" };
+        System.out.println(firstName + " starts a silly dance:");
+        for (String step : steps) {
+            System.out.println("Step " + step + "!");
+        }
+        System.out.println("End with a spin!");
+    }
+
+    // Recite the alphabet backwards but forget the letter 'Q'
+    @Override
+    public String reciteAlphabetBackwards() {
+        String alphabet = "ZYXWVUTSRPONMLKJIHGFEDCBA";
+        return alphabet.replace("Q", "");
+    }
+
+    // Count to ten but skip the number 7
+    @Override
+    public void countToTenWeirdly() {
+        System.out.println(firstName + " counts to ten weirdly:");
+        for (int i = 1; i <= 10; i++) {
+            if (i == 7) {
+                System.out.println("Skip!");
+            } else {
+                System.out.println(i);
+            }
+        }
+    }
+
+    // Create a whimsical poem about a topic using PoemWords
+    @Override
+    public String createWhimsicalPoem(String topic) {
+        Random random = new Random();
+        String word1 = PoemWords.words[random.nextInt(PoemWords.words.length)];
+        String word2 = PoemWords.words[random.nextInt(PoemWords.words.length)];
+        return "Oh " + topic + ", how you " + word1 + " and " + word2 + ",\n"
+             + "With your beauty, the world anew.\n"
+             + "The stars align and hearts gleam,\n"
+             + "In your presence, I dream.";
+    }
+
+    // Generate 6 random numbers for the state lottery between 1 and 49
+    @Override
+    public void winStateLottery() {
+        Random random = new Random();
+        System.out.println(firstName + "'s lottery numbers are:");
+        for (int i = 0; i < 6; i++) {
+            System.out.print((random.nextInt(49) + 1) + " ");
+        }
+        System.out.println();
+    }
+
+    // Main method to test the class
+    public static void main(String[] args) {
+        Person person = new Person("Alice", "Smith", 1990);
+        person.makeRandomSound();
+        person.performSillyDance();
+        System.out.println("Recite alphabet backwards (skipping Q): " + person.reciteAlphabetBackwards());
+        person.countToTenWeirdly();
+        System.out.println("Whimsical Poem:\n" + person.createWhimsicalPoem("The Sun"));
+        person.winStateLottery();
+    }
+}
